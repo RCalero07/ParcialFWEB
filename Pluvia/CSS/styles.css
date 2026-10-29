@@ -1,0 +1,186 @@
+:root {
+    --azul: #004494;
+    --azul2: #0077cc;
+    --fondo: #eef4fb;
+    --borde: #d5e0ee;
+    --texto: #1f2a37;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    text-align: center;
+    margin: 0;
+}
+
+/* ---------- LOGIN ---------- */
+.contenedor {
+    background: white;
+    width: 360px;
+    max-width: 92%;
+    margin: 50px auto;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 68, 148, 0.15);
+}
+
+h2 { color: var(--azul); margin-top: 0; }
+.logo { width: 160px; height: auto; margin: 6px 0 12px; }
+
+/* ---------- ELEMENTOS COMUNES ---------- */
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b5a6b;
+    margin-top: 12px;
+    text-align: left;
+}
+
+.contenedor label { text-align: center; }
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 5px 0;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fbfdff;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--azul2);
+    box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.18);
+}
+
+button {
+    padding: 11px 20px;
+    background: var(--azul2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover { background: #005fa3; }
+
+.contenedor button { width: 100%; margin-top: 16px; }
+
+button.secundario {
+    background: white;
+    color: var(--azul);
+    border: 1px solid var(--azul2);
+}
+
+button.secundario:hover { background: #e3effa; }
+
+.oculto { display: none !important; }
+#mensaje { color: #c0392b; font-weight: 600; min-height: 20px; }
+
+/* ---------- PANEL ---------- */
+.barra {
+    background: linear-gradient(90deg, var(--azul), var(--azul2));
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.marca { display: flex; align-items: center; gap: 12px; text-align: left; }
+.marca strong { display: block; font-size: 20px; letter-spacing: 2px; }
+.marca span { font-size: 12px; opacity: 0.9; }
+.logoMini { height: 46px; background: white; border-radius: 8px; padding: 3px; }
+
+.barra button.secundario { background: transparent; color: white; border-color: white; }
+.barra button.secundario:hover { background: rgba(255, 255, 255, 0.18); }
+
+.rejilla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.tarjeta {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 22px;
+    text-align: left;
+    box-shadow: 0 3px 12px rgba(0, 68, 148, 0.1);
+}
+
+.tarjeta.completa { grid-column: 1 / -1; }
+
+.tarjeta h3 {
+    margin: 0 0 6px;
+    color: var(--azul);
+    font-size: 16px;
+    border-bottom: 2px solid var(--borde);
+    padding-bottom: 8px;
+}
+
+.tarjeta h3:not(:first-child) { margin-top: 20px; }
+
+.fila { display: flex; gap: 12px; }
+.fila > * { flex: 1; }
+.fila.botones { margin-top: 18px; }
+
+#resultado {
+    background: #f4f9ff;
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--azul2);
+    border-radius: 8px;
+    padding: 14px;
+    min-height: 90px;
+    margin-top: 10px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+#cajaFoto {
+    background: #f4f9ff;
+    border: 2px dashed var(--borde);
+    border-radius: 8px;
+    min-height: 170px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8394a8;
+    overflow: hidden;
+}
+
+#cajaFoto video, #cajaFoto img { width: 100%; display: block; }
+
+.cajaGrafica { height: 280px; margin-top: 10px; }
+
+.ok { color: #1a7f37; }
+.alto { color: #c0392b; }
+
+@media (max-width: 760px) {
+    .rejilla { grid-template-columns: 1fr; }
+    .barra { padding: 10px 14px; }
+}
+
+/* ---------- MENSAJES DE AYUDA POR CAMPO ---------- */
+.ayuda {
+    display: none;
+    font-size: 12px;
+    color: var(--azul2);
+    margin-bottom: 4px;
+}
+
+input:focus + .ayuda { display: block; }
+.ayuda.error { display: block; color: #c0392b; font-weight: 600; }
